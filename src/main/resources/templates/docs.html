@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html layout:decorator="base">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Documents</title>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <h2 class="page-header">Documents</h2>
+    <ul>
+        <li th:each="doc : ${documents.results}">
+            <a th:href="@{${prismic.linkResolver.resolve(doc)}}" th:text="${doc.getSlug()}">
+                Doc 1
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

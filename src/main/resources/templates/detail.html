@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html layout:decorator="base">
+<head>
+  <meta charset="UTF-8" />
+  <title th:text="${document.slug}">document slug placeholder</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+
+        <article th:id="${document.id}" th:utext="${document.asHtml(prismic.linkResolver)}">
+            <h3>Article Placeholder</h3>
+        </article>
+
+		<section th:if="${not #lists.isEmpty(document.tags)}" class="tags">
+			<h3>Tags</h3>
+        	<ul>
+        	    <li th:each="tag : ${document.tags}" th:text="${tag}">a tag</li>
+        	</ul>
+		</section>
+
+    </div>
+</body>
+</html>
